@@ -1,0 +1,10 @@
+SELECT * FROM `tj_passenger_2019.penumpang`;
+
+--Soal1: Apa saja jenis angkutan transjakarta dan trayek yang digunakan oleh masyarakat pada tahun 2019?
+SELECT DISTINCT jenis, kode_trayek FROM `tj_passenger_2019.penumpang` WHERE tahun = 2019;
+
+--Soal2: Kapan angkutan transjakarta menerima jumlah penumpang paling banyak? Dari data jumlah 5 teratas apakah berada di bulan yang sama?
+SELECT bulan, jumlah_penumpang FROM `tj_passenger_2019.penumpang` ORDER BY jumlah_penumpang DESC LIMIT 5;
+
+--Soal3: Sebutkan ada berapa trayek yang diawali dengan ST? // TAMBAH DISTINCT PADA kode_trayek AGAR HANYA MENGAMBIL UNIQUE VALUE
+SELECT COUNT(DISTINCT trayek) AS jumlah_trayek FROM `tj_passenger_2019.penumpang` WHERE trayek LIKE 'ST%';
