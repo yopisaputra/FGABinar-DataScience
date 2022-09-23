@@ -1,0 +1,11 @@
+select * from `tj_passenger_2019.penumpang`;
+
+--Berapa total data pencatatan penumpang transjakarta yang di record pada tahun 2019?
+select count(jumlah_penumpang) total_data from `tj_passenger_2019.penumpang` where tahun = 2019;
+
+--Untuk memperjelas pengisian data, ganti Jenis kendaraan = BRT menjadi Bus Rapid Transit pada data penumpang bus transjakarta tahun 2019!
+select jenis, replace(jenis, 'BRT', 'Bus Rapid Transit') jenis_new from `tj_passenger_2019.penumpang` where tahun=2019;
+
+--Berapa maksimal jumlah penumpang yang melintasi trayek Koridor tampilkan setiap Koridor 1-13 di tahun 2019?
+select trayek, max(jumlah_penumpang) penumpang_max from `tj_passenger_2019.penumpang`
+where trayek like 'KORIDOR%' and tahun=2019 group by trayek;
